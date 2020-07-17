@@ -63,11 +63,26 @@ Requirements & tasks to be done:
     output - bricks number
 */
 function brickCalculator(floors) {
-    var feets = 1;
+    var feets = 1; // Initialize 1 because feets for multiplication
     let feetsOfTen = 15 * 10;
     let feetsOfTwenty = feetsOfTen + (12 * 10);
-    let bricksCount;
-    let Totalbricks = 0;
+    let Totalbricks;
+
+    if (floors <= 0) {
+        return 'Floors must not be zero or negative. Please try again!';
+    } else if (floors <= 10) {
+        feets = floors * 15;
+        Totalbricks = feets * 1000;
+        return Totalbricks;
+    } else if (floors <= 20) {
+        feets = feetsOfTen + ((floors - 10) * 12);
+        Totalbricks = feets * 1000;
+        return Totalbricks;
+    } else if (floors > 20) {
+        feets = feetsOfTwenty + ((floors - 20) * 10);
+        Totalbricks = feets * 1000;
+        return Totalbricks;
+    } else return `${floors} is not a number. It must be a number, not a string. Please try again!`;
 
 
 
@@ -75,12 +90,6 @@ function brickCalculator(floors) {
         case (floors < 0 && floors):
             console.log(`${floors} floors must not be negative. Please try again!`);
             break;
-            // case 0:
-            //     feets = 1 * 15;
-            //     bricksCount = feets * 1000;
-            //     Totalbricks = Totalbricks + bricksCount
-            //     console.log(Totalbricks)
-            //     break;
         case (floors <= 10 && floors):
             feets = floors * 15;
             bricksCount = feets * 1000;
@@ -104,9 +113,11 @@ function brickCalculator(floors) {
     }
 }
 
-brickCalculator('brick');
-brickCalculator(-25);
-brickCalculator(25);
+// Checking the possible inputs
+console.log(brickCalculator('abc'));
+console.log(brickCalculator());
+console.log(brickCalculator(-25));
+console.log(brickCalculator(25));
 
 /*
 Assignment No. 4. Tiny Friend - find out the lowest friend from an array === === === === === === === === === ===
