@@ -6,9 +6,17 @@ Requirements & tasks to be done:
     if float, 2 digit after decimal (35.54)
     output - mile
  */
-function feetToMile() {
-
+function feetToMile(feet) {
+    if (feet < 0) {
+        return `This ${feet} negative value is not valid for distance. Please input a positive number.`
+    } else {
+        let mile = feet / 5280;
+        // Displaying 4 decimal places
+        let resultMile = mile.toFixed(4);
+        return `${feet} feet = ${resultMile} mile`
+    }
 }
+console.log(feetToMile(500));
 
 /* 2. Wood Calculator in chair, table and bed ==================================
 Requirements & tasks to be done:
