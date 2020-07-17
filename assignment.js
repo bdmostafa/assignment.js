@@ -21,6 +21,7 @@ function feetToMile(feet) {
     }
 }
 
+// Checking the possible inputs
 console.log(feetToMile(-500));
 console.log(feetToMile('change my feet'));
 console.log(feetToMile(500));
@@ -48,6 +49,7 @@ function woodCalculator(chair, table, bed) {
     }
 }
 
+// Checking the possible inputs
 console.log(woodCalculator(12, -2, 1));
 console.log(woodCalculator(12, 'table', 1));
 console.log(woodCalculator(12, 2, 1));
@@ -87,29 +89,26 @@ function brickCalculator(floors) {
 
 
     switch (floors) {
-        case (floors < 0 && floors):
-            console.log(`${floors} floors must not be negative. Please try again!`);
+        case (floors <= 0 && floors):
+            console.log('Floors must not be zero or negative. Please try again!');
             break;
         case (floors <= 10 && floors):
             feets = floors * 15;
-            bricksCount = feets * 1000;
-            Totalbricks = Totalbricks + bricksCount
-            console.log(Totalbricks)
+            Totalbricks = feets * 1000;
+            console.log(Totalbricks);
             break;
         case (floors <= 20 && floors):
             feets = feetsOfTen + ((floors - 10) * 12);
-            bricksCount = feets * 1000;
-            Totalbricks = Totalbricks + bricksCount
-            console.log(Totalbricks)
+            Totalbricks = feets * 1000;
+            console.log(Totalbricks);
             break;
         case (floors > 20 && floors):
             feets = feetsOfTwenty + ((floors - 20) * 10);
-            bricksCount = feets * 1000;
-            Totalbricks = Totalbricks + bricksCount
-            console.log(Totalbricks)
+            Totalbricks = feets * 1000;
+            console.log(Totalbricks);
             break;
         default:
-            console.log(`${floors} floors input is not valid. Please try again!`)
+            console.log(`${floors} is not a number. It must be a number, not a string. Please try again!`)
     }
 }
 
@@ -148,6 +147,7 @@ let friendsEmpty = [];
 let friendsUndefined;
 let friends = ['Jhankar Mahbub', 'Mostafa', 'Tiny', 'Yeasin', 'Vue', 'Yo', 'Mahmud'];
 
+// Checking the possible inputs
 console.log(tinyFriend(friendsEmpty));
 console.log(tinyFriend(friendsUndefined));
 console.log(tinyFriend(friends));
