@@ -21,13 +21,29 @@ console.log(feetToMile(500));
 /* 2. Wood Calculator in chair, table and bed ==================================
 Requirements & tasks to be done:
     input - chair, table and bed in chronological order,
+    negative value or string input not allowed,
     1 chair = 1 cubic feet, 1 table = 3 cubic feet, 1 bed = 5 cubic feet,
-    negative value not allowed,
     output - cubic feet
 */
-function woodCalculator() {
+function woodCalculator(chair, table, bed) {
+    // Input validation
+    if (chair < 0 || table < 0 || bed < 0) {
+        return 'Negative value is not allowed. Please input a positive number.'
+    } else if (isNaN(chair) || typeof (table) !== 'number' || isNaN(bed)) {
+        // Both usages of isNan() and typeof()
+        return 'Please input a valid number, not string';
+    } else {
+        // As 1 chair = 1 cubic feet, no need to create extra variable
+        let tableCubicFeet = table * 3;
+        let bedCubicFeet = bed * 5;
+        let totalCubicFeet = chair + tableCubicFeet + bedCubicFeet;
+        return `Total cubic feet is ${totalCubicFeet}`;
+    }
 
 }
+console.log(woodCalculator(12, -2, 1));
+console.log(woodCalculator(12, 'table', 1));
+console.log(woodCalculator(12, 2, 1));
 
 /* 3. Brick Calculator in building ==============================
 Requirements & tasks to be done:
