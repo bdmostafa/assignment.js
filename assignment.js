@@ -1,4 +1,5 @@
-/* 1. Feet-To-Mile converter ==========================
+/*
+Assignment No. 1. Feet-To-Mile converter ======= === === === === === === ==
 Requirements & tasks to be done:
     input - feet,
     negative feet not allowed,
@@ -16,9 +17,11 @@ function feetToMile(feet) {
         return `${feet} feet = ${resultMile} mile`
     }
 }
+console.log(feetToMile(-500));
 console.log(feetToMile(500));
 
-/* 2. Wood Calculator in chair, table and bed ==================================
+/* 
+Assignment No. 2. Wood Calculator in chair, table and bed === === === === === === === === === === === =
 Requirements & tasks to be done:
     input - chair, table and bed in chronological order,
     negative value or string input not allowed,
@@ -45,7 +48,8 @@ console.log(woodCalculator(12, -2, 1));
 console.log(woodCalculator(12, 'table', 1));
 console.log(woodCalculator(12, 2, 1));
 
-/* 3. Brick Calculator in building ==============================
+/*
+Assignment No. 3. Brick Calculator in a building === === === === === === === === === ===
 Requirements & tasks to be done:
     input - building floors,
     negative floor not allowed,
@@ -58,14 +62,35 @@ function brickCalculator() {
 
 }
 
-/* 4. Tiny Friend - the lowest friend from an array ================================
+/*
+Assignment No. 4. Tiny Friend - the lowest friend from an array ================================
 Requirements & tasks to be done:
     input - an array of friends' list,
-    empty array not allowed,
+    empty array or undefined is not allowed,
     compare the length of every element/string in the array
     find out the lowest string from them
     output - the lowest friend
 */
-function tinyFriend() {
+function tinyFriend(friends) {
+    // Validation when array is empty or undefined
+    if (friends === undefined || friends.length < 1) {
+        return 'The list is empty or undefined. Please try again!';
+    } else {
+        let lowestFriend = friends[0];
 
+        for (let i = 0; i < friends.length; i++) {
+            if (friends[i].length < lowestFriend.length) {
+                lowestFriend = friends[i];
+            }
+        }
+        return lowestFriend;
+    }
 }
+
+let friendsEmpty = [];
+let friendsUndefined;
+let friends = ['Jhankar Mahbub', 'Mostafa', 'Tiny', 'Yeasin', 'Vue', 'Yo', 'Mahmud'];
+
+console.log(tinyFriend(friendsEmpty));
+console.log(tinyFriend(friendsUndefined));
+console.log(tinyFriend(friends));
