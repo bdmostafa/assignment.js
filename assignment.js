@@ -4,7 +4,7 @@ Requirements & tasks to be done:
     input - feet,
     negative feet not allowed,
     convert feet to mile,
-    if float, 2 digit after decimal (35.54)
+    if float, display 4 decimal places i.e., 45.4589
     output - mile
  */
 function feetToMile(feet) {
@@ -38,7 +38,6 @@ function woodCalculator(chair, table, bed) {
     if (chair < 0 || table < 0 || bed < 0) {
         return 'Negative value is not allowed. Please input a positive number.'
     } else if (typeof (chair) !== 'number' || typeof (table) !== 'number' || typeof (bed) !== 'number') {
-        // Both usages of isNan() and typeof()
         return 'Please input a valid number, not a string';
     } else {
         // As 1 chair = 1 cubic feet, there is no need to create extra variable for chair cubic feet
@@ -63,9 +62,51 @@ Requirements & tasks to be done:
     every feet need 1000 bricks constantly,
     output - bricks number
 */
-function brickCalculator() {
+function brickCalculator(floors) {
+    var feets = 1;
+    let feetsOfTen = 15 * 10;
+    let feetsOfTwenty = feetsOfTen + (12 * 10);
+    let bricksCount;
+    let Totalbricks = 0;
 
+
+
+    switch (floors) {
+        case (floors < 0 && floors):
+            console.log(`${floors} floors must not be negative. Please try again!`);
+            break;
+            // case 0:
+            //     feets = 1 * 15;
+            //     bricksCount = feets * 1000;
+            //     Totalbricks = Totalbricks + bricksCount
+            //     console.log(Totalbricks)
+            //     break;
+        case (floors <= 10 && floors):
+            feets = floors * 15;
+            bricksCount = feets * 1000;
+            Totalbricks = Totalbricks + bricksCount
+            console.log(Totalbricks)
+            break;
+        case (floors <= 20 && floors):
+            feets = feetsOfTen + ((floors - 10) * 12);
+            bricksCount = feets * 1000;
+            Totalbricks = Totalbricks + bricksCount
+            console.log(Totalbricks)
+            break;
+        case (floors > 20 && floors):
+            feets = feetsOfTwenty + ((floors - 20) * 10);
+            bricksCount = feets * 1000;
+            Totalbricks = Totalbricks + bricksCount
+            console.log(Totalbricks)
+            break;
+        default:
+            console.log(`${floors} floors input is not valid. Please try again!`)
+    }
 }
+
+brickCalculator('brick');
+brickCalculator(-25);
+brickCalculator(25);
 
 /*
 Assignment No. 4. Tiny Friend - find out the lowest friend from an array === === === === === === === === === ===
